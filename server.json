@@ -1,17 +1,26 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.stcmain/whats-running-mcp",
+  "title": "What's Running",
   "description": "Live OS ground truth for agents: running agent sessions, listening ports, daemons, system load.",
+  "websiteUrl": "https://shifttheculture.media/agent-tools",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/stcmain/whats-running-mcp/main/logo.png",
+      "mimeType": "image/png",
+      "sizes": ["400x400"]
+    }
+  ],
   "repository": {
     "url": "https://github.com/stcmain/whats-running-mcp",
     "source": "github"
   },
-  "version": "0.1.2",
+  "version": "0.1.3",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "whats-running-mcp",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "transport": {
         "type": "stdio"
       },
