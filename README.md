@@ -20,16 +20,10 @@ This server started as a shell script (`whats-running`) I wrote after my own fle
 
 ## Install
 
-```bash
-git clone https://github.com/stcmain/whats-running-mcp.git
-cd whats-running-mcp
-npm install && npm run build
-```
-
 Register with Claude Code (available in every session):
 
 ```bash
-claude mcp add --scope user whats-running -- node /path/to/whats-running-mcp/dist/index.js
+claude mcp add --scope user whats-running -- npx -y whats-running-mcp
 ```
 
 Or in any MCP client config:
@@ -38,12 +32,27 @@ Or in any MCP client config:
 {
   "mcpServers": {
     "whats-running": {
-      "command": "node",
-      "args": ["/path/to/whats-running-mcp/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "whats-running-mcp"]
     }
   }
 }
 ```
+
+<details>
+<summary>From source</summary>
+
+```bash
+git clone https://github.com/stcmain/whats-running-mcp.git
+cd whats-running-mcp
+npm install && npm run build
+# then point your client at node /path/to/whats-running-mcp/dist/index.js
+```
+
+</details>
+
+Published as [`whats-running-mcp`](https://www.npmjs.com/package/whats-running-mcp) on npm and as
+`io.github.stcmain/whats-running-mcp` in the [MCP Registry](https://registry.modelcontextprotocol.io/).
 
 ## Configuration
 
