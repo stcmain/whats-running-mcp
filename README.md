@@ -1,5 +1,9 @@
 # whats-running-mcp
 
+[![npm](https://img.shields.io/npm/v/whats-running-mcp)](https://www.npmjs.com/package/whats-running-mcp)
+[![license](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
+[![Glama](https://glama.ai/mcp/servers/stcmain/whats-running-mcp/badge)](https://glama.ai/mcp/servers/stcmain/whats-running-mcp)
+
 **Ground truth for agent fleets.** An MCP server that tells your AI agent what is *actually* running on the machine — live agent sessions, listening TCP ports, loaded daemons, system load — read straight from the OS (`ps` / `lsof` / `launchctl` / `df`), never from docs, transcripts, or memory files.
 
 ## Why
@@ -70,7 +74,7 @@ Platform: macOS first (my daily driver), Linux best-effort (`systemd --user` in 
 
 ## Who makes this
 
-Built by [Shift The Culture](https://shifttheculture.media/?utm_source=github&utm_medium=readme&utm_campaign=whats-running-mcp) — we run a one-person company on AI agents and ship the tooling we needed ourselves. This server is free and MIT-licensed, no strings.
+Built by [Shift The Culture](https://shifttheculture.media/agent-tools?utm_source=github&utm_medium=readme&utm_campaign=whats-running-mcp) — we run a one-person company on AI agents and ship the tooling we needed ourselves. This server is free and MIT-licensed, no strings.
 
 This server is the free, standalone piece of a larger multi-agent setup. The rest of that tooling is paid:
 
