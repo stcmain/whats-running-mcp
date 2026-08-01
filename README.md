@@ -72,6 +72,13 @@ Published as [`whats-running-mcp`](https://www.npmjs.com/package/whats-running-m
 
 Platform: macOS first (my daily driver), Linux best-effort (`systemd --user` in place of `launchctl`).
 
+## Related free tools
+
+Same idea — read-only, MIT, no telemetry — pointed at different blind spots:
+
+- **[whats-loaded-mcp](https://github.com/stcmain/whats-loaded-mcp)** — what is consuming your agent's context *before* a session starts: skill descriptions ranked by token cost, skills installed more than once, `CLAUDE.md`/`AGENTS.md` sizes including what their imports pull in. `npx -y whats-loaded-mcp`
+- **[whats-inherited-mcp](https://github.com/stcmain/whats-inherited-mcp)** — what a checkout tells your agent to do *before* you run it: instruction files, commands wired to auto-run, declared MCP servers, shipped skills. Repo strings come back labelled as data, not instructions. `npx -y whats-inherited-mcp`
+
 ## Who makes this
 
 Built by [Shift The Culture](https://shifttheculture.media/agent-tools?utm_source=github&utm_medium=readme&utm_campaign=whats-running-mcp) — we run a one-person company on AI agents and ship the tooling we needed ourselves. This server is free and MIT-licensed, no strings.
