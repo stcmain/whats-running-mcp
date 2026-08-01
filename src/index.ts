@@ -18,8 +18,11 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod";
 import { execFile } from "node:child_process";
 import { platform } from "node:os";
+import { createRequire } from "node:module";
 
-const VERSION = "0.1.3";
+// Read from package.json so the version reported to clients can never drift
+// from the published version. `npm version` only edits package.json.
+const VERSION: string = createRequire(import.meta.url)("../package.json").version;
 const IS_MAC = platform() === "darwin";
 
 /** Default process-name patterns that count as "agent" processes. */
