@@ -1,6 +1,6 @@
 {
   "name": "whats-running-mcp",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "mcpName": "io.github.stcmain/whats-running-mcp",
   "description": "MCP server that gives agents ground truth of what is ACTUALLY running on this machine — agent sessions, listening ports, daemons — read live from the OS, never from stale docs or memory.",
   "type": "module",
