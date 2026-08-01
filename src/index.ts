@@ -19,7 +19,7 @@ import { z } from "zod";
 import { execFile } from "node:child_process";
 import { platform } from "node:os";
 
-const VERSION = "0.1.0";
+const VERSION = "0.1.2";
 const IS_MAC = platform() === "darwin";
 
 /** Default process-name patterns that count as "agent" processes. */
