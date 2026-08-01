@@ -78,6 +78,7 @@ Same idea — read-only, MIT, no telemetry — pointed at different blind spots:
 
 - **[whats-loaded-mcp](https://github.com/stcmain/whats-loaded-mcp)** — what is consuming your agent's context *before* a session starts: skill descriptions ranked by token cost, skills installed more than once, `CLAUDE.md`/`AGENTS.md` sizes including what their imports pull in. `npx -y whats-loaded-mcp`
 - **[whats-inherited-mcp](https://github.com/stcmain/whats-inherited-mcp)** — what a checkout tells your agent to do *before* you run it: instruction files, commands wired to auto-run, declared MCP servers, shipped skills. Repo strings come back labelled as data, not instructions. `npx -y whats-inherited-mcp`
+- **[whats-allowed-mcp](https://github.com/stcmain/whats-allowed-mcp)** — what your agent can do *without asking you*: every settings file that contributes permission rules, which one wins, what runs unattended, and the rules your client accepts and then ignores. `npx -y whats-allowed-mcp`
 
 ## Who makes this
 
