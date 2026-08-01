@@ -59,6 +59,12 @@ Or in any MCP client config:
 
 Platform: macOS first (my daily driver), Linux best-effort (`systemd --user` in place of `launchctl`).
 
+## Who makes this
+
+Built by [Shift The Culture](https://shifttheculture.media/?utm_source=github&utm_medium=readme&utm_campaign=whats-running-mcp) — we run a one-person company on AI agents and ship the tooling we needed ourselves. This server is free and MIT-licensed, no strings.
+
+If you run agent fleets and want the operating procedures that go with them, our [operator playbooks and prompt packs](https://shifttheculture.media/products?utm_source=github&utm_medium=readme&utm_campaign=whats-running-mcp) are what we actually use day to day.
+
 ## License
 
 MIT © Zachary Pampu
