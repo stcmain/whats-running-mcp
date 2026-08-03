@@ -1,6 +1,6 @@
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -107,6 +107,20 @@ describe("claim: probes are bounded and degrade instead of throwing", () => {
     // This is the documented wart: callers treat "" as unknown. Asserted so the
     // behaviour cannot change silently while the README still describes it.
     assert.match(CODE, /resolve\(\s*stdout\s*\?\?\s*""\s*\)/);
+  });
+});
+
+describe("the suite runs everything it contains", () => {
+  test("every test file is listed in the npm test script", () => {
+    // `node --test` only gained glob support in Node 22, and this package
+    // supports Node >=18, so test files are passed explicitly. That makes it
+    // possible to add a file and never run it — this catches that.
+    const files = readdirSync(join(ROOT, "test")).filter((f) => f.endsWith(".test.mjs"));
+    const script = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8")).scripts.test;
+    assert.ok(files.length > 0, "no test files found");
+    for (const f of files) {
+      assert.ok(script.includes(`test/${f}`), `test/${f} exists but is not in the npm test script`);
+    }
   });
 });
 
