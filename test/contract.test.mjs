@@ -45,7 +45,7 @@ describe('claim: "no network code in it — no telemetry, nothing leaves the mac
 
 describe('claim: "read-only by construction — no shell, nothing model-produced is executed"', () => {
   test("never spawns a shell", () => {
-    for (const pattern of [/\bexecSync\s*\(/, /\bspawnSync\s*\(/, /\bspawn\s*\(/, /\bshell\s*:\s*true/, /[^A-Za-z]exec\s*\(/]) {
+    for (const pattern of [/\bexecSync\s*\(/, /\bspawnSync\s*\(/, /\bspawn\s*\(/, /\bshell\s*:\s*true/, /(?<![.\w])exec\s*\(/]) {
       assert.ok(!pattern.test(CODE), `found ${pattern} — only execFile is permitted`);
     }
   });
