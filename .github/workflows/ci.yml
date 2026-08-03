@@ -36,6 +36,19 @@ jobs:
       - name: Test
         run: npm test
 
+  secrets:
+    name: secret scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history — a secret committed then deleted still leaks
+
+      - name: gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   package:
     name: package integrity
     runs-on: ubuntu-latest
