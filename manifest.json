@@ -1,0 +1,79 @@
+{
+  "manifest_version": "0.2",
+  "name": "whats-running-mcp",
+  "display_name": "What's Running",
+  "version": "0.1.6",
+  "description": "What is ACTUALLY running on this machine — read live from the OS, never from stale docs or memory.",
+  "long_description": "Answers \"what is live right now?\" from the operating system itself — ps, lsof, launchctl/systemctl, df — never from transcripts, memory files, or documentation. Reports AI-agent sessions (terminal-attached vs detached, with pid, uptime and working directory), every TCP port in LISTEN state with its owning process, loaded daemons (non-Apple launchctl jobs on macOS, running systemd user services on Linux), and load/uptime/root-disk stats. Includes a one-call whats_running snapshot for grounding a session at start. Read-only by construction: every command is a fixed binary with fixed flags; nothing derived from model input is ever passed to a shell.",
+  "author": {
+    "name": "Zachary Pampu",
+    "email": "info@shifttheculture.media",
+    "url": "https://shifttheculture.media"
+  },
+  "homepage": "https://github.com/stcmain/whats-running-mcp",
+  "documentation": "https://github.com/stcmain/whats-running-mcp#readme",
+  "support": "https://github.com/stcmain/whats-running-mcp/issues",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "claude-code",
+    "observability",
+    "process-monitoring",
+    "ports",
+    "daemons",
+    "agents"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "dist/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/dist/index.js"
+      ],
+      "env": {
+        "WR_AGENT_PATTERNS": "${user_config.agent_patterns}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "agent_sessions",
+      "description": "AI-agent processes running right now (Claude Code, Codex, Aider, ...), terminal-attached vs detached, with pid, uptime and cwd"
+    },
+    {
+      "name": "listening_ports",
+      "description": "All TCP ports currently in LISTEN state with owning process and pid"
+    },
+    {
+      "name": "daemons",
+      "description": "Persistent services actually loaded: launchctl (macOS, non-Apple) or systemd user services (Linux), with optional label filter"
+    },
+    {
+      "name": "system_stats",
+      "description": "Load average, uptime, and root-disk free space"
+    },
+    {
+      "name": "whats_running",
+      "description": "Full live snapshot in one call: agent sessions, TCP listeners, loaded daemons, system stats"
+    }
+  ],
+  "compatibility": {
+    "runtimes": {
+      "node": ">=18"
+    },
+    "platforms": [
+      "darwin",
+      "linux"
+    ]
+  },
+  "icon": "logo.png",
+  "user_config": {
+    "agent_patterns": {
+      "type": "string",
+      "title": "Agent process patterns",
+      "description": "Comma-separated process-name substrings treated as agent sessions. Leave empty for the default: claude,codex,aider,cursor-agent,copilot,goose",
+      "required": false
+    }
+  }
+}

@@ -24,6 +24,8 @@ This server started as a shell script (`whats-running`) I wrote after my own fle
 
 ## Install
 
+**Claude Desktop (one-click, no terminal):** download the latest `whats-running-mcp-<version>.dxt` from [Releases](https://github.com/stcmain/whats-running-mcp/releases) and open it with Claude Desktop (double-click, or Settings → Extensions → Install Extension…). The server and its dependencies ship inside the bundle — no npm, no Node install.
+
 Register with Claude Code (available in every session):
 
 ```bash
